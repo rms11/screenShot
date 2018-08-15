@@ -13,3 +13,6 @@ Use these commands to download manually:
 3. sudo apt-get install v4l-utils
 
 Make sure the thing you are trying to capture is not covered by the terminal
+
+# demonstration:  
+[![Alt text](https://img.youtube.com/vi/https://youtu.be/TJ4scsEndbw/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/TJ4scsEndbw)
