@@ -114,12 +114,12 @@ read -s -n 1 key <&1
 	creator
 	iter=1
 	echo File Changed to: $directory
+	printf "\n"
 	
 	fi
 	if [[ $key = m ]] ; then
 	
 		printf "\n"
-		
 		echo To change from auto to manual exposure 
 		echo   v4l2-ctl -d /dev/video0 -c exposure_auto=1
 		echo To change from manual to auto exposure 
