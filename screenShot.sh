@@ -38,20 +38,13 @@ image () {
 } 
 
 creator (){
-if [ ! -d /home/nvidia/$location/$fileName ] 
-then
-	mkdir -p /home/nvidia/$location/$fileName
-	directory=$location'/'$fileName'/'
-	else 
-	directory=$location'/'$fileName'/'
+	if [ ! -d /home/nvidia/$location/$fileName ] 
+	then
+		mkdir -p /home/nvidia/$location/$fileName
 	fi
-	uncroppedFileName=$fileName'Uncropped'
 	if [ ! -d /home/nvidia/$location/$uncroppedFileName ] 
 	then
-	mkdir -p /home/nvidia/$location/$uncroppedFileName
-	uncropped=$location'/'$uncroppedFileName'/'
-	else 
-	uncropped=$location'/'$uncroppedFileName'/'
+		mkdir -p /home/nvidia/$location/$uncroppedFileName
 	fi 
 }
 
@@ -66,6 +59,10 @@ directoryQuestion (){
 
 	echo Enter file name
 	read fileName
+	
+	directory=$location'/'$fileName'/'
+	uncroppedFileName=$fileName'Uncropped'
+	uncropped=$location'/'$uncroppedFileName'/'
 }
 #-------------------------------------
 
