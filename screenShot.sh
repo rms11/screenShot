@@ -100,7 +100,7 @@ gnome-terminal -e  "v4l2-ctl -d /dev/video0 -c focus_absolute=88"
 
 while [ "$fileName" != "" ]; 
 do 
-read -s -n 1 key <&1
+	read -s -n 1 key <&1
 	if [[ $key = c ]]; then
 	
 		image
