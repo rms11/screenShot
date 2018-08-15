@@ -9,8 +9,8 @@ WIDTH=1280 #num of pixels in the X axis
 HEIGHT=554 #num of pixels in the y axis
 crop=$WIDTH'x'$HEIGHT'+'$X'+'$Y #used in the convert funtion to crop the screenshot
 
-exposure[1]=1000
-exposure[2]=900
+exposure[1]=900
+exposure[2]=1000
 exposure[3]=1100
 
 iter=1 #every captured screenshot adds one. Iter is reset to 1 when directory is changed
