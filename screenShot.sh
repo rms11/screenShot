@@ -2,11 +2,17 @@
 
 # varibles ---------------------------
 NET=networks/GoogleNet-ILSVRC12-subset #path to model
+
 X=170 #X cooridnate for crop location in pixels
 Y=390 #y cooridnate for crop location in pixels
 WIDTH=1280 #num of pixels in the X axis
 HEIGHT=554 #num of pixels in the y axis
 crop=$WIDTH'x'$HEIGHT'+'$X'+'$Y #used in the convert funtion to crop the screenshot
+
+exposure[1]=1000
+exposure[2]=900
+exposure[3]=1100
+
 iter=1 #every captured screenshot adds one. Iter is reset to 1 when directory is changed
 #-------------------------------------
 # functions---------------------------
@@ -30,11 +36,20 @@ open (){
 #}
 
 image () {
-	sleep .5 # allows time for exposure to update on screen
-	scrot $uncroppedFileName'-'$iter'.png' -e 'mv $f ~/'$uncropped;
-	convert $uncropped$uncroppedFileName'-'$iter'.png' -crop $crop $directory$fileName'-'$iter'.png'
-	(( iter++ ))
-	echo Captured
+	for i in 1 2 3
+	do
+		gnome-terminal -e  "v4l2-ctl -d /dev/video0 -c exposure_absolute="$exposure[$i]
+		sleep .5 # allows time for exposure to update on screen
+		scrot $uncroppedFileName'-'$iter'.png' -e 'mv $f ~/'$uncropped;
+		convert $uncropped$uncroppedFileName'-'$iter'.png' -crop $crop $directory$fileName'-'$iter'.png'
+		(( iter++ ))
+		echo Captured
+	done
+	#sleep .5 # allows time for exposure to update on screen
+	#scrot $uncroppedFileName'-'$iter'.png' -e 'mv $f ~/'$uncropped;
+	#convert $uncropped$uncroppedFileName'-'$iter'.png' -crop $crop $directory$fileName'-'$iter'.png'
+	#(( iter++ ))
+	#echo Captured
 } 
 
 creator (){
@@ -93,18 +108,7 @@ do
 read -s -n 1 key <&1
 	if [[ $key = c ]]; then
 	
-		#photo 1
-		gnome-terminal -e  "v4l2-ctl -d /dev/video0 -c exposure_absolute=1000" 
 		image
-
-		#photo 2
-		gnome-terminal -e  "v4l2-ctl -d /dev/video0 -c exposure_absolute=900" 
-		image
-
-		#photo 3
-		gnome-terminal -e  "v4l2-ctl -d /dev/video0 -c exposure_absolute=1100" 
-		image
-
 		printf "\n"
 		
 	fi 
@@ -114,12 +118,12 @@ read -s -n 1 key <&1
 	creator
 	iter=1
 	echo File Changed to: $directory
-	printf "\n"
 	
 	fi
 	if [[ $key = m ]] ; then
 	
 		printf "\n"
+		
 		echo To change from auto to manual exposure 
 		echo   v4l2-ctl -d /dev/video0 -c exposure_auto=1
 		echo To change from manual to auto exposure 
