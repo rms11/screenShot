@@ -1,5 +1,5 @@
 # screenShot
-Shell Script to capture and crop screenshots for fast photo database
+Shell Script to capture and crop screenshots for fast photo database creation
 
 checkAndInstall and txtCreator functions are under repair. 
 
