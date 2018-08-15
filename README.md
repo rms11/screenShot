@@ -3,6 +3,8 @@ Shell Script to capture and crop screenshots for fast photo database creation
 
 checkAndInstall and txtCreator functions are under repair. 
 
+Ability to email/transfer directory in future iterations
+
 the program uses Scrot, Imagemagick, v4l-utils 
 
 Use these commands to download manually:
