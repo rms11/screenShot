@@ -1,8 +1,10 @@
 # screenShot
 Shell Script to capture and crop screenshots for fast photo database
 
-Check and install function is under repiar
+checkAndInstall and txtCreator functions are under repair. 
+
 the program uses Scrot, Imagemagick, v4l-utils 
+
 Use these commands to download manually:
 1. sudo apt-get install scrot
 2. sudo apt-get install imagemagick
