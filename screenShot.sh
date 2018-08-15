@@ -45,11 +45,6 @@ image () {
 		(( iter++ ))
 		echo Captured
 	done
-	#sleep .5 # allows time for exposure to update on screen
-	#scrot $uncroppedFileName'-'$iter'.png' -e 'mv $f ~/'$uncropped;
-	#convert $uncropped$uncroppedFileName'-'$iter'.png' -crop $crop $directory$fileName'-'$iter'.png'
-	#(( iter++ ))
-	#echo Captured
 } 
 
 creator (){
