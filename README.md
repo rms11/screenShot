@@ -5,7 +5,7 @@ checkAndInstall and txtCreator functions are under repair.
 
 Ability to email/transfer directory in future iterations
 
-the program uses Scrot, Imagemagick, v4l-utils 
+The script uses: Scrot, Imagemagick, v4l-utils 
 
 Use these commands to download manually:
 1. sudo apt-get install scrot
