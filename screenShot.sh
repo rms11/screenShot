@@ -109,10 +109,10 @@ do
 	fi 
 	if [[ $key = a ]] ; then
 	
-	directoryQuestion
-	creator
-	iter=1
-	echo File Changed to: $directory
+		directoryQuestion
+		creator
+		iter=1
+		echo File Changed to: $directory
 	
 	fi
 	if [[ $key = m ]] ; then
